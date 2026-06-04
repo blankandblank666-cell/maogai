@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>毛概机考刷题</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">1-8 单元</p>
+          <h1>毛概机考刷题</h1>
+        </div>
+        <div class="stats" aria-label="刷题统计">
+          <div>
+            <span id="totalCount">0</span>
+            <small>全部题目</small>
+          </div>
+          <div>
+            <span id="doneCount">0</span>
+            <small>已刷</small>
+          </div>
+          <div>
+            <span id="wrongCount">0</span>
+            <small>错题</small>
+          </div>
+        </div>
+      </header>
+
+      <section class="controls" aria-label="刷题设置">
+        <label>
+          <span>题库</span>
+          <select id="modeSelect">
+            <option value="all">全部题目</option>
+            <option value="wrong">只刷错题</option>
+          </select>
+        </label>
+        <label>
+          <span>单元</span>
+          <select id="unitSelect">
+            <option value="all">全部单元</option>
+          </select>
+        </label>
+        <label>
+          <span>题型</span>
+          <select id="typeSelect">
+            <option value="all">全部题型</option>
+            <option value="single">单选</option>
+            <option value="multiple">多选</option>
+            <option value="judge">判断</option>
+          </select>
+        </label>
+        <div class="toolbar">
+          <button id="shuffleBtn" type="button" title="随机换题">↻ 随机</button>
+          <button id="resetBtn" type="button" title="清空本机刷题记录">清空记录</button>
+        </div>
+      </section>
+
+      <section class="quiz-card" aria-live="polite">
+        <div class="question-meta">
+          <span id="questionIndex">第 0 / 0 题</span>
+          <span id="questionTags"></span>
+        </div>
+        <h2 id="questionStem">正在载入题库...</h2>
+        <form id="answerForm" class="options"></form>
+        <div id="feedback" class="feedback" hidden></div>
+        <div class="actions">
+          <button id="submitBtn" type="button">提交答案</button>
+          <button id="nextBtn" type="button">下一题</button>
+        </div>
+      </section>
+
+      <section class="wrongbook-panel">
+        <div class="panel-title">
+          <h2>错题本</h2>
+          <span id="wrongBookCount" class="badge">0 道</span>
+        </div>
+        <div id="wrongBookList" class="wrongbook-list"></div>
+      </section>
+
+      <section class="list-panel">
+        <div class="panel-title">
+          <h2>题目列表</h2>
+          <input id="searchInput" type="search" placeholder="搜索题干或选项" />
+        </div>
+        <div id="questionList" class="question-list"></div>
+      </section>
+    </main>
+
+    <script src="./questions.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
